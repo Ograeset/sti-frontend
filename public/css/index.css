@@ -1,0 +1,10 @@
+#indexTop{
+  text-align: center;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+}
+td{
+  border:1px solid black;
+  padding:20px;
+  }
