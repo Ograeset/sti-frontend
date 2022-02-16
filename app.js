@@ -20,11 +20,3 @@ app.listen(PORT, function(){
   console.log(`Server started on port ${PORT}`)
 })
 
-function createRow(){
-  //acces the table and store it in a variable
-  var table = document.querySelector("#mytable");
-  //create rows and store it in a variable
-  var row = table.insertRow();
-  //now adding data to table
-  row.inneHTML = "<td>data1</td><td>data2</td><td>data3</td>";
-}
