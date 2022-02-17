@@ -3,8 +3,8 @@
 function age(){
   var xhr = new XMLHttpRequest()
   //xhr.open ("GET", "/js/data.json")
-  //xhr.open ("GET", "http://localhost:3001/football")
-  xhr.open ("GET", "https://nasir-backend.herokuapp.com/football")
+    xhr.open ("GET", "http://localhost:3001/football")
+  //xhr.open ("GET", "https://nasir-backend.herokuapp.com/football")
   xhr.onload = function (){
       var data = JSON.parse(this.response)
       createTable(data)
@@ -22,8 +22,8 @@ function createTable(data){
   appElement.appendChild(aTable)
   aTable.appendChild(createRow(data[0].name, data[0].m, data[0].v, data[0].o, data[0].f, data[0].points))
   aTable.appendChild(createRow(data[1].name, data[1].m, data[1].v, data[1].o, data[1].f, data[1].points))
-  aTable.appendChild(createRow(data[2].name, data[2].m, data[2].v, data[2].o, data[2].F, data[2].points))
-  aTable.appendChild(createRow(data[3].name, data[3].m, data[3].v, data[3].o, data[3].F, data[3].points))
+  aTable.appendChild(createRow(data[2].name, data[2].m, data[2].v, data[2].o, data[2].f, data[2].points))
+  aTable.appendChild(createRow(data[3].name, data[3].m, data[3].v, data[3].o, data[3].f, data[3].points))
 
 }
 
@@ -40,7 +40,7 @@ function createRow(name, m, v, o, f, points){
 
 function createCell(content){ 
 var aCell = document.createElement("td")
-aCell.innerHTmL = content
+aCell.innerHTML = content
 return aCell;
 }
 
