@@ -1,5 +1,3 @@
-//app.js
-
 const express = require("express")
 var favicon = require('serve-favicon')
 var path = require ('path')
@@ -13,6 +11,10 @@ app.use('/healthcheck', require('./routes/healthcheck.routes'));
   app.use(express.static('public'))
 
 app.get('/', function(req, res){
+    res.sendFile(__dirname + "/public/index.html")
+})
+
+app.get('/football', function(req, res){
     res.sendFile(__dirname + "/public/index.html")
 })
 
