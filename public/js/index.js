@@ -19,7 +19,7 @@ function deleterow(){
 } */
 
 
-var ettElement = document.getElementById("app")
+/* var ettElement = document.getElementById("app")
 
 var aTable = document.createElement("table")
 aTable.appendChild(createRow())
@@ -86,4 +86,4 @@ aCell.innerHTML = content
 return aCell;
 }
 
-age();  
+age();   */
