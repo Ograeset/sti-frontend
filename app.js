@@ -15,7 +15,7 @@ app.get('/', function(req, res){
 })
 
 app.get('/football', function(req, res){
-    res.sendFile(__dirname + "/public/index.html")
+    res.sendFile(__dirname + "/public/fotboll.html")
 })
 
 app.listen(PORT, function(){
