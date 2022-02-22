@@ -1,4 +1,4 @@
-import * as Tone from '/sti-frontend/node_modules/tone/Tone'
+import * as Tone from '/Users/nasir/Projekt/sti-frontend/node_modules/tone'
 
 const synth = new Tone.PolySynth().toDestination();
 // set the attributes across all the voices using 'set'
