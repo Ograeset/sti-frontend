@@ -1,13 +1,16 @@
-
+const FIRST_RUN = 5000
+const UPDATE_INTERVALL = 1000
+setTimeout(age, FIRST_RUN);
 
 function age(){
   var xhr = new XMLHttpRequest()
   //xhr.open ("GET", "/js/data.json")
-    xhr.open ("GET", "http://localhost:3001/football")
-  //xhr.open ("GET", "https://nasir-backend.herokuapp.com/football")
+  //xhr.open ("GET", "http://localhost:3001/football")
+  xhr.open ("GET", "https://nasir-backend.herokuapp.com/football")
   xhr.onload = function (){
       var data = JSON.parse(this.response)
       createTable(data)
+      setTimeout(age, UPDATE_INTERVALL);
   }
   xhr.send()
 }
@@ -19,24 +22,23 @@ function createTable(data){
   
   var appElement = document.getElementById("app")
   var aTable = document.createElement("table")
+  appElement.textContent = ""
   appElement.appendChild(aTable)
-  aTable.appendChild(createRow(data[0].position, data[0].name, data[0].m, data[0].v, data[0].o, data[0].f, data[0].points))
-  aTable.appendChild(createRow(data[1].position, data[1].name, data[1].m, data[1].v, data[1].o, data[1].f, data[1].points))
-  aTable.appendChild(createRow(data[2].position, data[2].name, data[2].m, data[2].v, data[2].o, data[2].f, data[2].points))
-  aTable.appendChild(createRow(data[3].position, data[3].name, data[3].m, data[3].v, data[3].o, data[3].f, data[3].points))
-  aTable.appendChild(createRow(data[4].position, data[4].name, data[4].m, data[4].v, data[4].o, data[4].f, data[4].points))
-
+  console.table(data)
+  for(tableRow of data){
+    aTable.appendChild(createRow(tableRow))
+  }
 }
 
-function createRow(position ,name, m, v, o, f, points){
+function createRow(tableRow){
   var aRow = document.createElement("tr")
-  aRow.appendChild(createCell(position))
-  aRow.appendChild(createCell(name))
-  aRow.appendChild(createCell(m))
-  aRow.appendChild(createCell(v))
-  aRow.appendChild(createCell(o))
-  aRow.appendChild(createCell(f))
-  aRow.appendChild(createCell(points))
+  aRow.appendChild(createCell(tableRow.position))
+  aRow.appendChild(createCell(tableRow.name))
+  aRow.appendChild(createCell(tableRow.m))
+  aRow.appendChild(createCell(tableRow.v))
+  aRow.appendChild(createCell(tableRow.o))
+  aRow.appendChild(createCell(tableRow.f))
+  aRow.appendChild(createCell(tableRow.points))
   return aRow
 }
 
@@ -45,5 +47,3 @@ var aCell = document.createElement("td")
 aCell.innerHTML = content
 return aCell;
 }
-
-age();

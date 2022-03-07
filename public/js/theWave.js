@@ -1,5 +1,4 @@
-import * as Tone from '/Users/nasir/Projekt/sti-frontend/node_modules/tone'
-
+var audioContext = new AudioContext()
 const synth = new Tone.PolySynth().toDestination();
 // set the attributes across all the voices using 'set'
 synth.set({ detune: -1200 });
